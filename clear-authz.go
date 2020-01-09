@@ -44,7 +44,7 @@ func main() {
 	}
 	log.Printf("Using %s for private key for %s", keyPath, v1Server)
 
-	pattern := regexp.MustCompile("https://" + regexp.QuoteMeta(v1Server) + "/acme/authz/[a-zA-Z0-9_-]+")
+	pattern := regexp.MustCompile("https://" + regexp.QuoteMeta(v1Server) + "/acme/authz-v3/[a-zA-Z0-9_-]+")
 
 	pkBuf, err := ioutil.ReadFile(keyPath)
 	if err != nil {
@@ -87,6 +87,7 @@ func main() {
 		}
 
 		if authz.Status != "pending" {
+			log.Printf("authz url '%s' is not pending", authURL)
 			continue
 		}
 
