@@ -8,9 +8,13 @@ You may want to check out https://tools.letsdebug.net/clear-authz instead. It ru
 
 ## Installation
 
-Please download the Linux amd64 binary from the releases page. Otherwise, you are on your own to build it from source:
+This is easiest to install using `go get` like so:
 
-    go get -u github.com/alexzorin/clear-authz
+    go get -u github.com/edlio/clear-authz
+
+Alternatively, you can cross-compile for amd64 if you wish to build from source:
+
+    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o clear-authz -v clear-authz.go
 
 ## Usage
 
